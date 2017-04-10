@@ -7,9 +7,9 @@ var app = express();
 app.use(express.static(process.cwd() + '/public'));
 
 app.use(bodyParser.urlencoded({
-	extended: false
-}))
-// override with POST having ?_method=DELETE
+        extended: false
+    }))
+    // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
@@ -17,7 +17,7 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var routes = require('./controllers/burgers_controller.js');
+var routes = require('./controllers/burgers_controllers.js');
 app.use('/', routes);
 
 var port = process.env.PORT || 3000;
